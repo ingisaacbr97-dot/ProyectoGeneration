@@ -28,6 +28,7 @@
    * elements and decorative icons in the team section to provide a cohesive
    * colour palette based on the design from the v0 conversation. */
   --color-accent: var(--color-secondary);
+
 }
 
 body {

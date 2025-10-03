@@ -10,25 +10,41 @@
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-     Navbar 
-    <nav class="navbar">
-        <div class="container">
-            <div class="nav-content">
-                <div class="logo">
-                    <span class="logo-text">Pawssible</span>
-                </div>
-                <ul class="nav-links">
-                    <li><a href="sobre-nosotros.html" class="nav-link active">Sobre Nosotros</a></li>
-                </ul>
-            </div>
+  
+  <!-- Menu Overlay -->
+  <div class="menu-overlay"></div>
+  
+     <nav class="navbar">
+    <div class="container">
+      <div class="nav-content">
+        <div class="logo">
+          <!-- Imagen pequeña al lado del texto -->
+          <img src="images/logo.png" alt="Logo Pawssible" class="logo-img">
+          <span class="logo-text">Pawssible</span>
         </div>
-    </nav>
+        
+        <!-- Botón hamburguesa -->
+        <button class="hamburger" aria-label="Menu">
+          <span class="hamburger-line"></span>
+          <span class="hamburger-line"></span>
+          <span class="hamburger-line"></span>
+        </button>
+        
+        <ul class="nav-links">
+          <li><a href="sobre-nosotros.html" class="nav-link active">Sobre Nosotros</a></li>
+        </ul>
+      </div>
+    </div>
+  </nav>
 
-     <!-- Hero Section -->
+  <!-- Hero Section -->
     <section class="hero">
         <div class="container">
-            <h1 class="hero-title" data-aos="fade-up" data-aos-duration="1000">Lo Imposible se Vuelve Pawssible</h1>
-            <p class="hero-description" data-aos="fade-up" data-aos-duration="1200" data-aos-delay="300">Cuando el amor se encuentra con la tecnología adecuada</p>
+            <h1 class="hero-title" data-aos="fade-up" data-aos-duration="1000">
+                <span class="title-white">Devolviendo la Movilidad</span>
+                <span class="title-orange">a Nuestras Mascotas</span>
+            </h1>
+            <p class="hero-description" data-aos="fade-up" data-aos-duration="1200" data-aos-delay="300">Prótesis personalizadas que transforman vidas y restauran la alegría de cada paso</p>
             <a href="#historia" class="btn-primary" data-aos="zoom-in" data-aos-duration="800" data-aos-delay="600">Conoce Nuestra Historia</a>
         </div>
     </section>
@@ -37,32 +53,32 @@
     <section id="historia" class="section historia">
         <div class="container">
             <div class="historia-header">
-                <h2 class="section-title" data-aos="fade-down" data-aos-duration="800">Nuestra Historia</h2>
-                <h3 class="section-subtitle" data-aos="fade-down" data-aos-duration="800" data-aos-delay="200">Cómo nace Pawssible</h3>
+                <h2 class="section-title" data-aos="slide-down" data-aos-duration="800" data-aos-easing="ease-out-back">Nuestra Historia</h2>
+                <h3 class="section-subtitle" data-aos="fade-up" data-aos-duration="600" data-aos-delay="200">Cómo nace Pawssible</h3>
             </div>
             
             <div class="historia-content">
                 <div class="historia-text">
-                    <p class="historia-paragraph" data-aos="fade-right" data-aos-duration="800" data-aos-delay="100">
+                    <p class="historia-paragraph" data-aos="fade-right" data-aos-duration="700" data-aos-delay="100">
                         Todo comenzó con una pregunta que cambió nuestra perspectiva: <strong>¿Por qué debería ser tan difícil devolver la alegría de moverse a un perro que lo ha perdido todo, menos las ganas de vivir?</strong>
                     </p>
                     
-                    <p class="historia-paragraph" data-aos="fade-right" data-aos-duration="800" data-aos-delay="200">
+                    <p class="historia-paragraph" data-aos="fade-right" data-aos-duration="700" data-aos-delay="200">
                         La respuesta llegó cuando conocimos a <strong>Tomasa (Tommy pa' los cuates)</strong>, una perrita mestiza de 7 años que había perdido su pata trasera debido a un carcinoma. Sus ojos seguían brillando con la misma intensidad de siempre, pero ella no entendía por qué su movilidad ya no era la misma de antes. Su familia se enfrentaba a un laberinto de búsquedas interminables: llamadas a clínicas, visitas a talleres especializados, largas esperas, búsquedas de opciones en el extranjero y, sobre todo, la incertidumbre de no saber si estaban tomando la decisión correcta.
                     </p>
                     
-                    <div class="highlight-box" data-aos="zoom-in" data-aos-duration="1000" data-aos-delay="400">
+                    <div class="highlight-box" data-aos="bounce" data-aos-duration="1200" data-aos-delay="400">
                         <p class="highlight-text">
                             Fue entonces cuando nos dimos cuenta de que miles de familias vivían la misma historia. Mascotas llenas de vida esperando una segunda oportunidad, y tutores dispuestos a dársela, pero sin un camino claro para hacerlo.
                         </p>
                     </div>
                     
-                    <p class="historia-paragraph" data-aos="fade-right" data-aos-duration="800" data-aos-delay="300">
+                    <p class="historia-paragraph" data-aos="slide-up" data-aos-duration="700" data-aos-delay="300">
                         Así nació <strong>Pawssible</strong>: de la convicción de que cada mascota merece volver a correr, saltar y jugar, y de que cada familia merece un proceso transparente, acompañado y confiable para lograrlo.
                     </p>
                 </div>
                 
-                <div class="historia-image-container" data-aos="fade-left" data-aos-duration="1000" data-aos-delay="500">
+                <div class="historia-image-container" data-aos="zoom-out" data-aos-duration="1000" data-aos-delay="500">
                     <img src="images/perrito-feliz.jpeg" 
                          alt="Perro feliz con prótesis" 
                          class="historia-image">
@@ -131,28 +147,118 @@
 
      
     <section id="equipo" class="section team">
+
+        <!-- Elementos decorativos flotantes -->
+        <div class="decoratives">
+            <span class="decorative bone">🦴</span>
+            <span class="decorative ball">⚽</span>
+            <span class="decorative paw">🐾</span>
+        </div>
         <div class="container">
             <h2 class="section-title" data-aos="fade-up" data-aos-duration="800">Nuestro Equipo</h2>
             <p class="section-description" data-aos="fade-up" data-aos-duration="800" data-aos-delay="200">
-                Profesionales apasionados dedicados a mejorar la vida de nuestros amigos caninos
+                Conoce al equipo multidisciplinario que hace posible cada prótesis.
             </p>
-            
             <div class="team-grid">
+<<<<<<< HEAD
                 
-                <div class="team-member" data-aos="fade-up" data-aos-duration="800" data-aos-delay="100">
+                <div class="team-member" data-aos="zoom-in" data-aos-duration="700" data-aos-delay="100" data-aos-easing="ease-out-back">
                     <div class="member-photo-container">
                         <img src="/placeholder.svg?height=200&width=200" 
                              alt="Dr. Carlos Mendoza" 
                              class="member-photo">
+=======
+                <!-- Tarjeta 1 -->
+                <div class="team-card" data-aos="fade-up" data-aos-duration="800" data-aos-delay="100">
+                    <div class="card-image">
+                        <img src="https://placedog.net/400/400?id=1" alt="Dante Roberto Reyna López">
+                        <span class="paw-icon">🐾</span>
+>>>>>>> 12da901ae0e527a0f197833d0ba6ddeef6393451
                     </div>
-                    <h4 class="member-name">Dr. Carlos Mendoza</h4>
-                    <p class="member-role">Veterinario Especialista</p>
-                    <p class="member-description">
-                        Con 15 años de experiencia en ortopedia veterinaria, lidera el diseño clínico de cada prótesis.
-                    </p>
+                    <h3 class="card-name">Dante Roberto Reyna López</h3>
+                    <p class="card-position">Product Owner &amp; Coordinador</p>
+                    <p class="card-description">Lidera la estrategia de producto y coordina al equipo para asegurar que cada prótesis cumpla con los estándares más exigentes de calidad y bienestar animal.</p>
+                    <button class="card-button"><span class="button-default">Conocer más</span><span class="button-hover">¡Hola! 👋</span></button>
                 </div>
+                <!-- Tarjeta 2 -->
+                <div class="team-card" data-aos="fade-up" data-aos-duration="800" data-aos-delay="150">
+                    <div class="card-image">
+                        <img src="https://placedog.net/400/400?id=2" alt="Gracia María Palma Rodríguez">
+                        <span class="paw-icon">🐾</span>
+                    </div>
+                    <h3 class="card-name">Gracia María Palma Rodríguez</h3>
+                    <p class="card-position">Scrum Master &amp; Documentación</p>
+                    <p class="card-description">Facilita las ceremonias ágiles, gestiona la documentación del proyecto y mantiene la comunicación entre todos los interesados.</p>
+                    <button class="card-button"><span class="button-default">Conocer más</span><span class="button-hover">¡Hola! 👋</span></button>
+                </div>
+                <!-- Tarjeta 3 -->
+                <div class="team-card" data-aos="fade-up" data-aos-duration="800" data-aos-delay="200">
+                    <div class="card-image">
+                        <img src="https://placedog.net/400/400?id=3" alt="Emiliano Muñoz González">
+                        <span class="paw-icon">🐾</span>
+                    </div>
+                    <h3 class="card-name">Emiliano Muñoz González</h3>
+                    <p class="card-position">Desarrollador Front‑end</p>
+                    <p class="card-description">Encargado de construir interfaces intuitivas y accesibles, integrando el diseño con la funcionalidad para una experiencia fluida.</p>
+                    <button class="card-button"><span class="button-default">Conocer más</span><span class="button-hover">¡Hola! 👋</span></button>
+                </div>
+                <!-- Tarjeta 4 -->
+                <div class="team-card" data-aos="fade-up" data-aos-duration="800" data-aos-delay="250">
+                    <div class="card-image">
+                        <img src="https://placedog.net/400/400?id=4" alt="Fernando López Ramírez">
+                        <span class="paw-icon">🐾</span>
+                    </div>
+                    <h3 class="card-name">Fernando López Ramírez</h3>
+                    <p class="card-position">Desarrollador Back‑end</p>
+                    <p class="card-description">Diseña y optimiza la arquitectura de los sistemas y servicios que procesan la información de pedidos y personalización de prótesis.</p>
+                    <button class="card-button"><span class="button-default">Conocer más</span><span class="button-hover">¡Hola! 👋</span></button>
+                </div>
+                <!-- Tarjeta 5 -->
+                <div class="team-card" data-aos="fade-up" data-aos-duration="800" data-aos-delay="300">
+                    <div class="card-image">
+                        <img src="https://placedog.net/400/400?id=5" alt="Isaac Barrios Rodríguez">
+                        <span class="paw-icon">🐾</span>
+                    </div>
+                    <h3 class="card-name">Isaac Barrios Rodríguez</h3>
+                    <p class="card-position">Diseñador UX/UI</p>
+                    <p class="card-description">Se enfoca en la usabilidad y apariencia del sitio, creando experiencias agradables y coherentes en todas las plataformas.</p>
+                    <button class="card-button"><span class="button-default">Conocer más</span><span class="button-hover">¡Hola! 👋</span></button>
+                </div>
+                <!-- Tarjeta 6 -->
+                <div class="team-card" data-aos="fade-up" data-aos-duration="800" data-aos-delay="350">
+                    <div class="card-image">
+                        <img src="https://placedog.net/400/400?id=6" alt="Raúl De Jesús Vargas Hernández">
+                        <span class="paw-icon">🐾</span>
+                    </div>
+                    <h3 class="card-name">Raúl De Jesús Vargas Hernández</h3>
+                    <p class="card-position">QA &amp; Control de calidad</p>
+                    <p class="card-description">Verifica que cada producto y proceso cumplan con los estándares de seguridad y eficiencia, realizando pruebas continuas.</p>
+                    <button class="card-button"><span class="button-default">Conocer más</span><span class="button-hover">¡Hola! 👋</span></button>
+                </div>
+                <!-- Tarjeta 7 -->
+                <div class="team-card" data-aos="fade-up" data-aos-duration="800" data-aos-delay="400">
+                    <div class="card-image">
+                        <img src="https://placedog.net/400/400?id=7" alt="Guillermo Olivares García">
+                        <span class="paw-icon">🐾</span>
+                    </div>
+                    <h3 class="card-name">Guillermo Olivares García</h3>
+                    <p class="card-position">Ingeniero Biomédico</p>
+                    <p class="card-description">Desarrolla y mejora las prótesis utilizando tecnologías de impresión 3D y materiales de vanguardia.</p>
+                    <button class="card-button"><span class="button-default">Conocer más</span><span class="button-hover">¡Hola! 👋</span></button>
+                </div>
+                <!-- Tarjeta 8 -->
+                <div class="team-card" data-aos="fade-up" data-aos-duration="800" data-aos-delay="450">
+                    <div class="card-image">
+                        <img src="https://placedog.net/400/400?id=8" alt="Christian Rubi Cirilo">
+                        <span class="paw-icon">🐾</span>
+                    </div>
+                    <h3 class="card-name">Christian Rubi Cirilo</h3>
+                    <p class="card-position">Especialista en Rehabilitación</p>
+                    <p class="card-description">Acompaña a los perros y a sus tutores en el proceso de rehabilitación, garantizando una transición segura y confortable.</p>
+                    <button class="card-button"><span class="button-default">Conocer más</span><span class="button-hover">¡Hola! 👋</span></button>
 
-                <div class="team-member" data-aos="fade-up" data-aos-duration="800" data-aos-delay="200">
+<<<<<<< HEAD
+                <div class="team-member" data-aos="slide-up" data-aos-duration="700" data-aos-delay="200">
                     <div class="member-photo-container">
                         <img src="/placeholder.svg?height=200&width=200" 
                              alt="Ing. María Torres" 
@@ -165,7 +271,7 @@
                     </p>
                 </div>
 
-                <div class="team-member" data-aos="fade-up" data-aos-duration="800" data-aos-delay="300">
+                <div class="team-member" data-aos="fade-left" data-aos-duration="700" data-aos-delay="300">
                     <div class="member-photo-container">
                         <img src="/placeholder.svg?height=200&width=200" 
                              alt="Lic. Roberto Sánchez" 
@@ -177,56 +283,47 @@
                         Especializado en rehabilitación canina, acompaña el proceso de adaptación de cada mascota.
                     </p>
                 </div>
-                 <div class="team-member" data-aos="fade-up" data-aos-duration="800" data-aos-delay="300">
+                
+                <div class="team-member" data-aos="fade-right" data-aos-duration="700" data-aos-delay="400">
                     <div class="member-photo-container">
                         <img src="/placeholder.svg?height=200&width=200" 
-                             alt="Lic. Roberto Sánchez" 
+                             alt="Lic. Carmen López" 
                              class="member-photo">
                     </div>
-                    <h4 class="member-name">Lic. Roberto Sánchez</h4>
-                    <p class="member-role">Fisioterapeuta Veterinario</p>
+                    <h4 class="member-name">Lic. Carmen López</h4>
+                    <p class="member-role">Especialista en Atención al Cliente</p>
                     <p class="member-description">
-                        Especializado en rehabilitación canina, acompaña el proceso de adaptación de cada mascota.
+                        Acompaña a las familias en todo el proceso, brindando apoyo emocional y seguimiento personalizado.
                     </p>
                 </div>
-                 <div class="team-member" data-aos="fade-up" data-aos-duration="800" data-aos-delay="300">
+                
+                <div class="team-member" data-aos="zoom-out" data-aos-duration="700" data-aos-delay="500">
                     <div class="member-photo-container">
                         <img src="/placeholder.svg?height=200&width=200" 
-                             alt="Lic. Roberto Sánchez" 
+                             alt="Ing. José Martínez" 
                              class="member-photo">
                     </div>
-                    <h4 class="member-name">Lic. Roberto Sánchez</h4>
-                    <p class="member-role">Fisioterapeuta Veterinario</p>
+                    <h4 class="member-name">Ing. José Martínez</h4>
+                    <p class="member-role">Ingeniero de Materiales</p>
                     <p class="member-description">
-                        Especializado en rehabilitación canina, acompaña el proceso de adaptación de cada mascota.
+                        Desarrolla nuevos materiales biocompatibles para mejorar la durabilidad y comodidad de las prótesis.
                     </p>
                 </div>
-                 <div class="team-member" data-aos="fade-up" data-aos-duration="800" data-aos-delay="300">
+                
+                <div class="team-member" data-aos="bounce" data-aos-duration="800" data-aos-delay="600">
                     <div class="member-photo-container">
                         <img src="/placeholder.svg?height=200&width=200" 
-                             alt="Lic. Roberto Sánchez" 
+                             alt="Dra. Elena García" 
                              class="member-photo">
                     </div>
-                    <h4 class="member-name">Lic. Roberto Sánchez</h4>
-                    <p class="member-role">Fisioterapeuta Veterinario</p>
+                    <h4 class="member-name">Dra. Elena García</h4>
+                    <p class="member-role">Investigación y Desarrollo</p>
                     <p class="member-description">
-                        Especializado en rehabilitación canina, acompaña el proceso de adaptación de cada mascota.
-                    </p>
-                </div>
-                 <div class="team-member" data-aos="fade-up" data-aos-duration="800" data-aos-delay="300">
-                    <div class="member-photo-container">
-                        <img src="/placeholder.svg?height=200&width=200" 
-                             alt="Lic. Roberto Sánchez" 
-                             class="member-photo">
-                    </div>
-                    <h4 class="member-name">Lic. Roberto Sánchez</h4>
-                    <p class="member-role">Fisioterapeuta Veterinario</p>
-                    <p class="member-description">
-                        Especializado en rehabilitación canina, acompaña el proceso de adaptación de cada mascota.
+                        Lidera las iniciativas de investigación para innovar en tecnologías de prótesis veterinarias.
                     </p>
                 </div>
 
-                <div class="team-member" data-aos="fade-up" data-aos-duration="800" data-aos-delay="400">
+                <div class="team-member" data-aos="slide-down" data-aos-duration="700" data-aos-delay="700">
                     <div class="member-photo-container">
                         <img src="/placeholder.svg?height=200&width=200" 
                              alt="Tec. Ana Ramírez" 
@@ -237,6 +334,8 @@
                     <p class="member-description">
                         Responsable de la fabricación precisa y control de calidad de cada prótesis producida.
                     </p>
+=======
+>>>>>>> 12da901ae0e527a0f197833d0ba6ddeef6393451
                 </div>
             </div>
         </div>
@@ -287,18 +386,22 @@
     </footer>
 
     <script>
-        // ===== FUNCIONALIDAD AOS (ANIMATE ON SCROLL) =====
+        // ===== FUNCIONALIDAD AOS AVANZADA (ANIMATE ON SCROLL) =====
         class AOS {
             constructor() {
                 this.animatedElements = [];
                 this.throttleTimeout;
+                this.lastScrollY = window.pageYOffset;
+                this.scrollDirection = 'down';
+                this.scrollSpeed = 0;
+                this.animationQueue = new Map();
                 this.init();
             }
 
             init() {
                 this.refresh();
                 window.addEventListener('scroll', () => this.throttleScrollHandler());
-                window.addEventListener('resize', () => this.throttleScrollHandler());
+                window.addEventListener('resize', () => this.refresh());
                 // Trigger initial check after a small delay
                 setTimeout(() => this.handleScroll(), 100);
             }
@@ -307,7 +410,7 @@
                 if (this.throttleTimeout) {
                     clearTimeout(this.throttleTimeout);
                 }
-                this.throttleTimeout = setTimeout(() => this.handleScroll(), 10);
+                this.throttleTimeout = setTimeout(() => this.handleScroll(), 16); // ~60fps
             }
 
             refresh() {
@@ -315,7 +418,13 @@
                     element: element,
                     offset: this.getOffset(element),
                     delay: parseInt(element.getAttribute('data-aos-delay')) || 0,
-                    once: element.getAttribute('data-aos-once') !== 'false'
+                    duration: parseInt(element.getAttribute('data-aos-duration')) || 600,
+                    once: element.getAttribute('data-aos-once') === 'true',
+                    mirror: element.getAttribute('data-aos-mirror') !== 'false',
+                    easing: element.getAttribute('data-aos-easing') || 'ease-out',
+                    animationType: element.getAttribute('data-aos') || 'fade-up',
+                    isAnimated: false,
+                    isExiting: false
                 }));
             }
 
@@ -323,42 +432,175 @@
                 const rect = element.getBoundingClientRect();
                 return {
                     top: rect.top + window.pageYOffset,
-                    bottom: rect.bottom + window.pageYOffset
+                    bottom: rect.bottom + window.pageYOffset,
+                    height: element.offsetHeight
                 };
             }
 
+            updateScrollDirection() {
+                const currentScrollY = window.pageYOffset;
+                this.scrollSpeed = Math.abs(currentScrollY - this.lastScrollY);
+                this.scrollDirection = currentScrollY > this.lastScrollY ? 'down' : 'up';
+                this.lastScrollY = currentScrollY;
+            }
+
+            animateElement(element, action, delay = 0) {
+                const elementId = element.dataset.aosId || Math.random().toString(36).substr(2, 9);
+                element.dataset.aosId = elementId;
+
+                // Cancelar animación previa si existe
+                if (this.animationQueue.has(elementId)) {
+                    clearTimeout(this.animationQueue.get(elementId));
+                }
+
+                const executeAnimation = () => {
+                    if (action === 'enter') {
+                        element.classList.remove('aos-exit');
+                        element.classList.add('aos-animate');
+                    } else if (action === 'exit') {
+                        element.classList.remove('aos-animate');
+                        element.classList.add('aos-exit');
+                        
+                        // Remover clase de salida después de la animación
+                        setTimeout(() => {
+                            element.classList.remove('aos-exit');
+                        }, 600);
+                    }
+                };
+
+                if (delay > 0) {
+                    const timeoutId = setTimeout(executeAnimation, delay);
+                    this.animationQueue.set(elementId, timeoutId);
+                } else {
+                    executeAnimation();
+                }
+            }
+
             handleScroll() {
+                this.updateScrollDirection();
                 const windowTop = window.pageYOffset;
                 const windowBottom = windowTop + window.innerHeight;
+                const windowCenter = windowTop + (window.innerHeight / 2);
                 
                 this.animatedElements.forEach(item => {
-                    const { element, offset, delay, once } = item;
+                    const { element, delay, once, mirror } = item;
                     
-                    // Calculate trigger point (when 80% of element is visible)
-                    const triggerPoint = offset.top + (element.offsetHeight * 0.2);
+                    // Actualizar offset dinámicamente
+                    item.offset = this.getOffset(element);
+                    const { top, bottom, height } = item.offset;
                     
-                    if (triggerPoint <= windowBottom && !element.classList.contains('aos-animate')) {
-                        // Apply delay if specified
-                        if (delay > 0) {
-                            setTimeout(() => {
-                                if (!element.classList.contains('aos-animate')) {
-                                    element.classList.add('aos-animate');
-                                }
-                            }, delay);
-                        } else {
-                            element.classList.add('aos-animate');
-                        }
-                    } else if (!once && offset.bottom < windowTop) {
-                        // Reset animation if element is above viewport (unless once is true)
-                        element.classList.remove('aos-animate');
+                    // Puntos de activación más precisos
+                    const enterThreshold = 0.15; // 15% del elemento visible para entrar
+                    const exitThreshold = 0.85;  // 85% del elemento fuera para salir
+                    
+                    const triggerPointEnter = top + (height * enterThreshold);
+                    const triggerPointExit = bottom - (height * exitThreshold);
+                    
+                    // Determinar si el elemento está en viewport
+                    const isInViewport = triggerPointEnter <= windowBottom && triggerPointExit >= windowTop;
+                    const isFullyVisible = top >= windowTop && bottom <= windowBottom;
+                    const isPartiallyVisible = top <= windowBottom && bottom >= windowTop;
+                    
+                    // Estados actuales
+                    const isAnimated = element.classList.contains('aos-animate');
+                    const isExiting = element.classList.contains('aos-exit');
+                    
+                    // Lógica de animación mejorada
+                    if (isInViewport && !isAnimated && !isExiting) {
+                        // ENTRAR: Elemento entra al viewport
+                        this.animateElement(element, 'enter', delay);
+                        item.isAnimated = true;
+                        
+                    } else if (!isInViewport && isAnimated && !once && mirror && !isExiting) {
+                        // SALIR: Elemento sale del viewport
+                        this.animateElement(element, 'exit', 0);
+                        item.isAnimated = false;
                     }
+                    
+                    // Animaciones especiales basadas en la velocidad de scroll
+                    if (this.scrollSpeed > 20 && isPartiallyVisible) {
+                        // Scroll rápido: animaciones más dinámicas
+                        element.style.transitionDuration = '0.3s';
+                    } else {
+                        // Scroll normal: duración estándar
+                        element.style.transitionDuration = item.duration + 'ms';
+                    }
+                    
+                    // Aplicar easing personalizado
+                    element.style.transitionTimingFunction = item.easing;
+                });
+            }
+
+            // Método público para refrescar animaciones
+            refreshAnimations() {
+                this.animatedElements.forEach(item => {
+                    const { element } = item;
+                    element.classList.remove('aos-animate', 'aos-exit');
+                });
+                this.handleScroll();
+            }
+
+            // Método público para deshabilitar/habilitar animaciones
+            disable() {
+                this.animatedElements.forEach(item => {
+                    item.element.classList.add('aos-animate');
+                    item.element.classList.remove('aos-exit');
+                });
+            }
+
+            enable() {
+                this.refreshAnimations();
+            }
+        }
+
+        // Initialize AOS con configuración avanzada
+        let aosInstance;
+        
+        function initializeAOS() {
+            aosInstance = new AOS();
+            
+            // Configurar observadores adicionales para mejor rendimiento
+            if ('IntersectionObserver' in window) {
+                const observerOptions = {
+                    rootMargin: '50px 0px -50px 0px',
+                    threshold: [0, 0.1, 0.5, 1]
+                };
+                
+                // Observer para optimizar animaciones fuera de pantalla
+                const performanceObserver = new IntersectionObserver((entries) => {
+                    entries.forEach(entry => {
+                        const element = entry.target;
+                        if (entry.intersectionRatio === 0) {
+                            // Elemento completamente fuera de vista
+                            element.style.willChange = 'auto';
+                        } else {
+                            // Elemento visible o parcialmente visible
+                            element.style.willChange = 'transform, opacity';
+                        }
+                    });
+                }, observerOptions);
+                
+                // Observar todos los elementos AOS
+                document.querySelectorAll('[data-aos]').forEach(el => {
+                    performanceObserver.observe(el);
                 });
             }
         }
 
-        // Initialize AOS
-        document.addEventListener('DOMContentLoaded', function() {
-            new AOS();
+        // Inicializar inmediatamente si el DOM ya está listo
+        if (document.readyState === 'loading') {
+            document.addEventListener('DOMContentLoaded', initializeAOS);
+        } else {
+            initializeAOS();
+        }
+
+        // Reinicializar en cambios de orientación móvil
+        window.addEventListener('orientationchange', function() {
+            setTimeout(() => {
+                if (aosInstance) {
+                    aosInstance.refresh();
+                }
+            }, 500);
         });
 
         // Smooth scroll para navegación
@@ -383,6 +625,49 @@
             } else {
                 navbar.classList.remove('scrolled');
             }
+        });
+
+        // Hamburger Menu Functionality
+        document.addEventListener('DOMContentLoaded', function() {
+            const hamburger = document.querySelector('.hamburger');
+            const navLinks = document.querySelector('.nav-links');
+            const menuOverlay = document.querySelector('.menu-overlay');
+            
+            function toggleMenu() {
+                const isActive = hamburger.classList.contains('active');
+                
+                hamburger.classList.toggle('active');
+                navLinks.classList.toggle('active');
+                menuOverlay.classList.toggle('active');
+                
+                // Prevent body scroll when menu is open
+                document.body.style.overflow = !isActive ? 'hidden' : '';
+            }
+            
+            function closeMenu() {
+                hamburger.classList.remove('active');
+                navLinks.classList.remove('active');
+                menuOverlay.classList.remove('active');
+                document.body.style.overflow = '';
+            }
+            
+            // Toggle menu when clicking hamburger
+            hamburger.addEventListener('click', toggleMenu);
+            
+            // Close menu when clicking overlay
+            menuOverlay.addEventListener('click', closeMenu);
+
+            // Close menu when clicking on a nav link
+            document.querySelectorAll('.nav-link').forEach(link => {
+                link.addEventListener('click', closeMenu);
+            });
+
+            // Close menu on window resize (desktop)
+            window.addEventListener('resize', function() {
+                if (window.innerWidth > 768) {
+                    closeMenu();
+                }
+            });
         });
 
         // Animaciones adicionales para elementos interactivos

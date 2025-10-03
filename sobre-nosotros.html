@@ -10,25 +10,41 @@
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-     Navbar 
-    <nav class="navbar">
-        <div class="container">
-            <div class="nav-content">
-                <div class="logo">
-                    <span class="logo-text">Pawssible</span>
-                </div>
-                <ul class="nav-links">
-                    <li><a href="sobre-nosotros.html" class="nav-link active">Sobre Nosotros</a></li>
-                </ul>
-            </div>
+  
+  <!-- Menu Overlay -->
+  <div class="menu-overlay"></div>
+  
+     <nav class="navbar">
+    <div class="container">
+      <div class="nav-content">
+        <div class="logo">
+          <!-- Imagen pequeña al lado del texto -->
+          <img src="images/logo.png" alt="Logo Pawssible" class="logo-img">
+          <span class="logo-text">Pawssible</span>
         </div>
-    </nav>
+        
+        <!-- Botón hamburguesa -->
+        <button class="hamburger" aria-label="Menu">
+          <span class="hamburger-line"></span>
+          <span class="hamburger-line"></span>
+          <span class="hamburger-line"></span>
+        </button>
+        
+        <ul class="nav-links">
+          <li><a href="sobre-nosotros.html" class="nav-link active">Sobre Nosotros</a></li>
+        </ul>
+      </div>
+    </div>
+  </nav>
 
-     <!-- Hero Section -->
+  <!-- Hero Section -->
     <section class="hero">
         <div class="container">
-            <h1 class="hero-title" data-aos="fade-up" data-aos-duration="1000">Lo Imposible se Vuelve Pawssible</h1>
-            <p class="hero-description" data-aos="fade-up" data-aos-duration="1200" data-aos-delay="300">Cuando el amor se encuentra con la tecnología adecuada</p>
+            <h1 class="hero-title" data-aos="fade-up" data-aos-duration="1000">
+                <span class="title-white">Devolviendo la Movilidad</span>
+                <span class="title-orange">a Nuestras Mascotas</span>
+            </h1>
+            <p class="hero-description" data-aos="fade-up" data-aos-duration="1200" data-aos-delay="300">Prótesis personalizadas que transforman vidas y restauran la alegría de cada paso</p>
             <a href="#historia" class="btn-primary" data-aos="zoom-in" data-aos-duration="800" data-aos-delay="600">Conoce Nuestra Historia</a>
         </div>
     </section>
@@ -292,6 +308,8 @@
             constructor() {
                 this.animatedElements = [];
                 this.throttleTimeout;
+                this.lastScrollY = window.pageYOffset;
+                this.scrollDirection = 'down';
                 this.init();
             }
 
@@ -315,7 +333,8 @@
                     element: element,
                     offset: this.getOffset(element),
                     delay: parseInt(element.getAttribute('data-aos-delay')) || 0,
-                    once: element.getAttribute('data-aos-once') !== 'false'
+                    once: element.getAttribute('data-aos-once') !== 'false',
+                    mirror: element.getAttribute('data-aos-mirror') !== 'false' // Nueva opción para controlar animación bidireccional
                 }));
             }
 
@@ -327,18 +346,33 @@
                 };
             }
 
+            updateScrollDirection() {
+                const currentScrollY = window.pageYOffset;
+                this.scrollDirection = currentScrollY > this.lastScrollY ? 'down' : 'up';
+                this.lastScrollY = currentScrollY;
+            }
+
             handleScroll() {
+                this.updateScrollDirection();
                 const windowTop = window.pageYOffset;
                 const windowBottom = windowTop + window.innerHeight;
                 
                 this.animatedElements.forEach(item => {
-                    const { element, offset, delay, once } = item;
+                    const { element, offset, delay, once, mirror } = item;
                     
-                    // Calculate trigger point (when 80% of element is visible)
-                    const triggerPoint = offset.top + (element.offsetHeight * 0.2);
+                    // Actualizar offset en tiempo real
+                    item.offset = this.getOffset(element);
+                    const currentOffset = item.offset;
                     
-                    if (triggerPoint <= windowBottom && !element.classList.contains('aos-animate')) {
-                        // Apply delay if specified
+                    // Calculate trigger points
+                    const triggerPointEnter = currentOffset.top + (element.offsetHeight * 0.2); // Cuando entra
+                    const triggerPointExit = currentOffset.bottom - (element.offsetHeight * 0.2); // Cuando sale
+                    
+                    // Elemento está visible en viewport
+                    const isInViewport = triggerPointEnter <= windowBottom && triggerPointExit >= windowTop;
+                    
+                    if (isInViewport && !element.classList.contains('aos-animate')) {
+                        // Activar animación cuando el elemento entra al viewport
                         if (delay > 0) {
                             setTimeout(() => {
                                 if (!element.classList.contains('aos-animate')) {
@@ -348,8 +382,8 @@
                         } else {
                             element.classList.add('aos-animate');
                         }
-                    } else if (!once && offset.bottom < windowTop) {
-                        // Reset animation if element is above viewport (unless once is true)
+                    } else if (!isInViewport && element.classList.contains('aos-animate') && !once && mirror) {
+                        // Desactivar animación cuando el elemento sale del viewport (solo si mirror está habilitado)
                         element.classList.remove('aos-animate');
                     }
                 });
@@ -383,6 +417,49 @@
             } else {
                 navbar.classList.remove('scrolled');
             }
+        });
+
+        // Hamburger Menu Functionality
+        document.addEventListener('DOMContentLoaded', function() {
+            const hamburger = document.querySelector('.hamburger');
+            const navLinks = document.querySelector('.nav-links');
+            const menuOverlay = document.querySelector('.menu-overlay');
+            
+            function toggleMenu() {
+                const isActive = hamburger.classList.contains('active');
+                
+                hamburger.classList.toggle('active');
+                navLinks.classList.toggle('active');
+                menuOverlay.classList.toggle('active');
+                
+                // Prevent body scroll when menu is open
+                document.body.style.overflow = !isActive ? 'hidden' : '';
+            }
+            
+            function closeMenu() {
+                hamburger.classList.remove('active');
+                navLinks.classList.remove('active');
+                menuOverlay.classList.remove('active');
+                document.body.style.overflow = '';
+            }
+            
+            // Toggle menu when clicking hamburger
+            hamburger.addEventListener('click', toggleMenu);
+            
+            // Close menu when clicking overlay
+            menuOverlay.addEventListener('click', closeMenu);
+
+            // Close menu when clicking on a nav link
+            document.querySelectorAll('.nav-link').forEach(link => {
+                link.addEventListener('click', closeMenu);
+            });
+
+            // Close menu on window resize (desktop)
+            window.addEventListener('resize', function() {
+                if (window.innerWidth > 768) {
+                    closeMenu();
+                }
+            });
         });
 
         // Animaciones adicionales para elementos interactivos

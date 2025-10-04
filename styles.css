@@ -741,6 +741,55 @@ body {
   transform: scale(1.05);
 }
 
+/* Sección: Así nació Pawssible */
+.pawssible-birth-section {
+  padding: 2.5rem 2rem;
+  border-radius: 1rem;
+  background-color: #0597f2; /* color sólido similar al azul original */
+  max-width: 100%;
+  margin: 2rem 0;
+  box-shadow: var(--shadow-md); /* sombra discreta, igual que otros cuadros */
+  animation: none; /* quitamos animación glow */
+}
+
+.pawssible-birth-text {
+  font-family: var(--font-serif);
+  font-size: 1.125rem;
+  font-weight: 700;
+  color: var(--color-white);
+  text-align: center;
+  line-height: 1.8;
+  margin: 0;
+}
+
+
+/* Responsive Design para la sección */
+@media (min-width: 640px) {
+  .pawssible-birth-section {
+    padding: 2rem 2.5rem;
+  }
+
+  .pawssible-birth-text {
+    font-size: 1.25rem;
+  }
+}
+
+@media (min-width: 768px) {
+  .pawssible-birth-text {
+    font-size: 1.5rem;
+  }
+}
+
+@media (min-width: 1024px) {
+  .pawssible-birth-section {
+    padding: 2.5rem 3rem;
+  }
+
+  .pawssible-birth-text {
+    font-size: 1.5rem;
+  }
+}
+
 /* Misión */
 .mision {
   background: linear-gradient(135deg, var(--color-primary-dark) 0%, var(--color-primary) 100%);

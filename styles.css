@@ -23,13 +23,26 @@
   --shadow-lg: 0 8px 32px rgba(13, 13, 13, 0.2);
 
   --transition: all 0.3s ease;
+
+  /* Accent colour derived from the secondary colour. This is used for interactive
+   * elements and decorative icons in the team section to provide a cohesive
+   * colour palette based on the design from the v0 conversation. */
+  --color-accent: var(--color-secondary);
+
 }
 
 body {
   font-family: var(--font-serif);
   line-height: 1.6;
   color: var(--color-white);
-  background-color: var(--color-primary);
+  /* Use a light blue background and apply a repeating pattern of paws and
+   * prosthetic illustrations. The pattern image is stored in the images
+   * directory as paw-pattern-bg.png. Setting a larger background-size makes
+   * the pattern subtle and non‑distracting. */
+  background-color: var(--color-primary-light);
+  background-image: url('images/paw-pattern-bg.png');
+  background-repeat: repeat;
+  background-size: 500px;
   overflow-x: hidden;
 }
 
@@ -39,21 +52,49 @@ body {
   padding: 0 2rem;
 }
 
-/* ===== ANIMACIONES ESTILO AOS ===== */
+/* ===== ANIMACIONES ESTILO AOS MEJORADAS ===== */
 
-/* Elementos animables - estado inicial (oculto) */
+/* Estados base para elementos animables */
 [data-aos] {
   pointer-events: none;
+  transition-timing-function: ease-out;
+  transition-duration: 0.6s;
+  will-change: transform, opacity;
 }
 
 [data-aos].aos-animate {
   pointer-events: auto;
 }
 
-/* Fade In Animations */
+/* Estados de transición para animaciones fluidas */
+[data-aos].aos-exit {
+  pointer-events: none;
+  transition-timing-function: ease-in;
+}
+
+/* Efectos de easing personalizados */
+[data-aos-easing="ease-out-back"] {
+  transition-timing-function: cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+[data-aos-easing="ease-in-out-back"] {
+  transition-timing-function: cubic-bezier(0.68, -0.55, 0.265, 1.55);
+}
+
+[data-aos-easing="ease-out-cubic"] {
+  transition-timing-function: cubic-bezier(0.215, 0.61, 0.355, 1);
+}
+
+[data-aos-easing="ease-out-quart"] {
+  transition-timing-function: cubic-bezier(0.165, 0.84, 0.44, 1);
+}
+
+/* ===== FADE ANIMATIONS ===== */
+
+/* Fade Up */
 [data-aos="fade-up"] {
   opacity: 0;
-  transform: translate3d(0, 100px, 0);
+  transform: translate3d(0, 60px, 0);
   transition-property: opacity, transform;
 }
 
@@ -62,9 +103,15 @@ body {
   transform: translate3d(0, 0, 0);
 }
 
+[data-aos="fade-up"].aos-exit {
+  opacity: 0;
+  transform: translate3d(0, -60px, 0);
+}
+
+/* Fade Down */
 [data-aos="fade-down"] {
   opacity: 0;
-  transform: translate3d(0, -100px, 0);
+  transform: translate3d(0, -60px, 0);
   transition-property: opacity, transform;
 }
 
@@ -73,9 +120,15 @@ body {
   transform: translate3d(0, 0, 0);
 }
 
+[data-aos="fade-down"].aos-exit {
+  opacity: 0;
+  transform: translate3d(0, 60px, 0);
+}
+
+/* Fade Left */
 [data-aos="fade-left"] {
   opacity: 0;
-  transform: translate3d(-100px, 0, 0);
+  transform: translate3d(-60px, 0, 0);
   transition-property: opacity, transform;
 }
 
@@ -84,9 +137,15 @@ body {
   transform: translate3d(0, 0, 0);
 }
 
+[data-aos="fade-left"].aos-exit {
+  opacity: 0;
+  transform: translate3d(60px, 0, 0);
+}
+
+/* Fade Right */
 [data-aos="fade-right"] {
   opacity: 0;
-  transform: translate3d(100px, 0, 0);
+  transform: translate3d(60px, 0, 0);
   transition-property: opacity, transform;
 }
 
@@ -95,6 +154,12 @@ body {
   transform: translate3d(0, 0, 0);
 }
 
+[data-aos="fade-right"].aos-exit {
+  opacity: 0;
+  transform: translate3d(-60px, 0, 0);
+}
+
+/* Fade */
 [data-aos="fade"] {
   opacity: 0;
   transition-property: opacity;
@@ -104,10 +169,16 @@ body {
   opacity: 1;
 }
 
-/* Zoom Animations */
+[data-aos="fade"].aos-exit {
+  opacity: 0;
+}
+
+/* ===== ZOOM ANIMATIONS ===== */
+
+/* Zoom In */
 [data-aos="zoom-in"] {
   opacity: 0;
-  transform: scale(0.6);
+  transform: scale(0.7);
   transition-property: opacity, transform;
 }
 
@@ -116,6 +187,12 @@ body {
   transform: scale(1);
 }
 
+[data-aos="zoom-in"].aos-exit {
+  opacity: 0;
+  transform: scale(1.2);
+}
+
+/* Zoom Out */
 [data-aos="zoom-out"] {
   opacity: 0;
   transform: scale(1.2);
@@ -127,7 +204,14 @@ body {
   transform: scale(1);
 }
 
-/* Flip Animations */
+[data-aos="zoom-out"].aos-exit {
+  opacity: 0;
+  transform: scale(0.7);
+}
+
+/* ===== FLIP ANIMATIONS ===== */
+
+/* Flip Up */
 [data-aos="flip-up"] {
   opacity: 0;
   transform: perspective(2500px) rotateX(-100deg);
@@ -137,6 +221,66 @@ body {
 [data-aos="flip-up"].aos-animate {
   opacity: 1;
   transform: perspective(2500px) rotateX(0deg);
+}
+
+[data-aos="flip-up"].aos-exit {
+  opacity: 0;
+  transform: perspective(2500px) rotateX(100deg);
+}
+
+/* ===== SLIDE ANIMATIONS ===== */
+
+/* Slide Up */
+[data-aos="slide-up"] {
+  opacity: 0;
+  transform: translate3d(0, 100%, 0);
+  transition-property: opacity, transform;
+}
+
+[data-aos="slide-up"].aos-animate {
+  opacity: 1;
+  transform: translate3d(0, 0, 0);
+}
+
+[data-aos="slide-up"].aos-exit {
+  opacity: 0;
+  transform: translate3d(0, -100%, 0);
+}
+
+/* Slide Down */
+[data-aos="slide-down"] {
+  opacity: 0;
+  transform: translate3d(0, -100%, 0);
+  transition-property: opacity, transform;
+}
+
+[data-aos="slide-down"].aos-animate {
+  opacity: 1;
+  transform: translate3d(0, 0, 0);
+}
+
+[data-aos="slide-down"].aos-exit {
+  opacity: 0;
+  transform: translate3d(0, 100%, 0);
+}
+
+/* ===== BOUNCE ANIMATION ===== */
+[data-aos="bounce"] {
+  opacity: 0;
+  transform: scale(0.3);
+  transition-property: opacity, transform;
+  transition-timing-function: cubic-bezier(0.68, -0.55, 0.265, 1.55);
+}
+
+[data-aos="bounce"].aos-animate {
+  opacity: 1;
+  transform: scale(1);
+}
+
+[data-aos="bounce"].aos-exit {
+  opacity: 0;
+  transform: scale(0.3);
+  transition-timing-function: ease-out;
 }
 
 [data-aos="flip-left"] {
@@ -298,6 +442,19 @@ body {
   align-items: center;
 }
 
+.logo {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+.logo-img {
+  height: 2rem;
+  width: auto;
+  object-fit: contain;
+  transition: var(--transition);
+}
+
 .logo-text {
   font-family: var(--font-sans);
   font-size: 1.75rem;
@@ -340,6 +497,69 @@ body {
 
 .nav-link:hover::after {
   width: 100%;
+}
+
+.nav-link.active {
+  color: var(--color-secondary);
+}
+
+.nav-link.active::after {
+  width: 100%;
+}
+
+/* Hamburger Menu */
+.hamburger {
+  display: none;
+  flex-direction: column;
+  justify-content: space-around;
+  width: 2rem;
+  height: 2rem;
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  padding: 0;
+  z-index: 1001;
+  transition: var(--transition);
+}
+
+.hamburger-line {
+  width: 2rem;
+  height: 0.25rem;
+  background: var(--color-white);
+  border-radius: 10px;
+  transition: var(--transition);
+  transform-origin: 1px;
+}
+
+.hamburger.active .hamburger-line:first-child {
+  transform: rotate(45deg);
+}
+
+.hamburger.active .hamburger-line:nth-child(2) {
+  opacity: 0;
+}
+
+.hamburger.active .hamburger-line:nth-child(3) {
+  transform: rotate(-45deg);
+}
+
+/* Mobile Menu Overlay */
+.menu-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.5);
+  z-index: 999;
+  opacity: 0;
+  visibility: hidden;
+  transition: var(--transition);
+}
+
+.menu-overlay.active {
+  opacity: 1;
+  visibility: visible;
 }
 
 /* Hero Section */
@@ -475,6 +695,17 @@ body {
   line-height: 1.8;
 }
 
+/* Estilos para el texto del hero con colores específicos */
+.title-white {
+  color: var(--color-white);
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+}
+
+.title-orange {
+  color: var(--color-secondary);
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+}
+
 .highlight-box {
   background-color: var(--color-secondary);
   padding: 2rem;
@@ -508,6 +739,55 @@ body {
 
 .historia-image:hover {
   transform: scale(1.05);
+}
+
+/* Sección: Así nació Pawssible */
+.pawssible-birth-section {
+  padding: 2.5rem 2rem;
+  border-radius: 1rem;
+  background-color: #0597f2; /* color sólido similar al azul original */
+  max-width: 100%;
+  margin: 2rem 0;
+  box-shadow: var(--shadow-md); /* sombra discreta, igual que otros cuadros */
+  animation: none; /* quitamos animación glow */
+}
+
+.pawssible-birth-text {
+  font-family: var(--font-serif);
+  font-size: 1.125rem;
+  font-weight: 700;
+  color: var(--color-white);
+  text-align: center;
+  line-height: 1.8;
+  margin: 0;
+}
+
+
+/* Responsive Design para la sección */
+@media (min-width: 640px) {
+  .pawssible-birth-section {
+    padding: 2rem 2.5rem;
+  }
+
+  .pawssible-birth-text {
+    font-size: 1.25rem;
+  }
+}
+
+@media (min-width: 768px) {
+  .pawssible-birth-text {
+    font-size: 1.5rem;
+  }
+}
+
+@media (min-width: 1024px) {
+  .pawssible-birth-section {
+    padding: 2.5rem 3rem;
+  }
+
+  .pawssible-birth-text {
+    font-size: 1.5rem;
+  }
 }
 
 /* Misión */
@@ -800,14 +1080,42 @@ body {
 }
 
 @media (max-width: 768px) {
+  .hamburger {
+    display: flex;
+  }
+
   .nav-links {
-    gap: 1rem;
-    flex-wrap: wrap;
+    position: fixed;
+    top: 0;
+    right: -100%;
+    height: 100vh;
+    width: 100%;
+    max-width: 300px;
+    background: linear-gradient(135deg, var(--color-primary) 0%, var(--color-primary-dark) 100%);
+    flex-direction: column;
     justify-content: center;
+    align-items: center;
+    gap: 2rem;
+    transition: var(--transition);
+    z-index: 1000;
+    box-shadow: var(--shadow-lg);
+  }
+
+  .nav-links.active {
+    right: 0;
   }
 
   .nav-link {
-    font-size: 0.9rem;
+    font-size: 1.25rem;
+    padding: 1rem;
+    width: 100%;
+    text-align: center;
+  }
+
+  .nav-link::after {
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
   }
 
   .hero {
@@ -902,6 +1210,169 @@ body {
 
 .highlight-box {
   animation: glow 5s ease-in-out infinite;
+}
+
+/* ===== Estilos personalizados para la nueva sección de equipo ===== */
+
+/* Tarjeta del equipo con efecto de desenfoque y desplazamiento */
+.team-card {
+  position: relative;
+  background-color: rgba(34, 99, 180, 0.4);
+  backdrop-filter: blur(6px);
+  border-radius: 1.5rem;
+  padding: 2rem 1.5rem;
+  overflow: hidden;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+/* Animación de la tarjeta al pasar el ratón */
+.team-card:hover {
+  transform: translateY(-8px) scale(1.02);
+  box-shadow: 0 8px 32px rgba(242, 154, 46, 0.4);
+}
+
+/* Contenedor circular de la imagen */
+.card-image {
+  position: relative;
+  width: 150px;
+  height: 150px;
+  margin: 0 auto;
+  border-radius: 50%;
+  overflow: hidden;
+  border: 5px solid var(--color-secondary);
+  transition: border-width 0.3s ease, transform 0.3s ease;
+}
+
+/* Imagen dentro del contenedor circular */
+.card-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+/* Aumenta el borde y escala la imagen en hover */
+.team-card:hover .card-image {
+  border-width: 8px;
+  transform: scale(1.05);
+}
+
+/* Icono de huella superpuesto a la imagen */
+.paw-icon {
+  position: absolute;
+  bottom: -10px;
+  right: -10px;
+  font-size: 2rem;
+  color: var(--color-secondary);
+  transition: transform 0.3s ease;
+}
+
+/* Animación del icono de huella en hover */
+.team-card:hover .paw-icon {
+  transform: translate(10px, -10px) scale(1.3) rotate(12deg);
+}
+
+/* Nombre del integrante */
+.card-name {
+  color: var(--color-white);
+  font-family: var(--font-sans);
+  font-size: 1.5rem;
+  margin-top: 1rem;
+  margin-bottom: 0.25rem;
+}
+
+/* Puesto del integrante */
+.card-position {
+  color: var(--color-secondary);
+  font-family: var(--font-subtitle);
+  font-size: 1.125rem;
+  margin-bottom: 0.75rem;
+}
+
+/* Descripción del integrante */
+.card-description {
+  color: var(--color-beige);
+  font-family: var(--font-serif);
+  font-size: 1rem;
+  line-height: 1.5;
+}
+
+/* Botón interactivo */
+.card-button {
+  margin-top: 1.25rem;
+  display: inline-block;
+  padding: 0.75rem 1.5rem;
+  border-radius: 9999px;
+  font-weight: 700;
+  font-family: var(--font-sans);
+  color: var(--color-white);
+  background-color: var(--color-secondary);
+  border: none;
+  cursor: pointer;
+  position: relative;
+  overflow: hidden;
+  transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+/* Cambia el color y escala del botón al hacer hover en la tarjeta */
+.team-card:hover .card-button {
+  background-color: var(--color-primary);
+  transform: scale(1.05);
+}
+
+/* Definición del texto por defecto dentro del botón */
+.card-button .button-default {
+  display: inline;
+}
+
+/* Definición del texto alternativo del botón */
+.card-button .button-hover {
+  display: none;
+}
+
+/* Al hacer hover sobre la tarjeta, alternar los textos del botón */
+.team-card:hover .card-button .button-default {
+  display: none;
+}
+.team-card:hover .card-button .button-hover {
+  display: inline;
+}
+
+/* Contenedor de los elementos decorativos flotantes */
+.decoratives {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  overflow: hidden;
+}
+
+/* Iconos decorativos flotantes */
+.decorative {
+  position: absolute;
+  opacity: 0.3;
+  font-size: 3rem;
+  color: var(--color-secondary);
+  animation: float 12s infinite linear;
+}
+
+/* Posicionamientos distintos para cada icono decorativo */
+.decorative.bone {
+  top: 10%;
+  left: -5%;
+  animation-duration: 14s;
+}
+.decorative.ball {
+  bottom: 15%;
+  right: -5%;
+  animation-duration: 10s;
+}
+.decorative.paw {
+  top: 50%;
+  right: -5%;
+  animation-duration: 12s;
 }
 /* Hero Decorative Elements */
 .hero-ball {

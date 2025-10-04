@@ -955,33 +955,39 @@ body {
   box-shadow: 0 8px 32px rgba(242, 154, 46, 0.4);
 }
 
-.member-photo {
+.member-photo2
   width: 100%;
   height: 100%;
   object-fit: cover;
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
 }
 
 .member-name {
   font-family: var(--font-sans);
-  font-size: 1.5rem;
-  font-weight: 700;
+  font-size: 1.1em;
+  font-weight: 700;scondary
   color: var(--color-white);
+  font-weight: 600;
   margin-bottom: 0.5rem;
+  text-shadow: 0 1px 3px rgba(0, 0, 0, 0.2);
 }
 
 .member-role {
   font-family: var(--font-subtitle);
-  font-size: 1.125rem;
+  font-size: 1.45rem;
   font-weight: 400;
-  color: var(--color-secondary);
+  color: var(--color-sncondarydary);
   margin-bottom: 1rem;
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
 }
 
 .member-description {
   font-family: var(--font-serif);
-  font-size: 1rem;
-  color: var(--color-beige);
-  line-height: 1.6;
+  font-size: 1.1rem;
+  color: var(--color-secondary);
+  line-height: 1.6;;
+  font-weight: 600;
+  text-shadow: 0 1px 3px rgba(0, 0, 0, 0.2)
 }
 
 /* Footer */
@@ -1068,8 +1074,10 @@ body {
 
 .footer-copyright {
   font-family: var(--font-subtitle);
-  font-size: 0.95rem;
-  color: var(--color-beige);
+  font-size: 1.05rem;
+  color: var(--color-secondary);
+  font-weight: 600;
+  text-shadow: 0 1px 3px rgba(0, 0, 0, 0.2);
 }
 
 /* Responsive Design */

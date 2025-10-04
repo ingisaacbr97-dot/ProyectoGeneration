@@ -1018,24 +1018,26 @@ body {
 
 .footer-tagline {
   font-family: var(--font-serif);
-  font-size: 0.95rem;
-  color: var(--color-beige);
+  font-size: 1.1rem;
+  color: var(--color-secondary);
+  font-weight: 600;
   font-style: italic;
   margin-top: 0.5rem;
 }
 
 .footer-subtitle {
   font-family: var(--font-sans);
-  font-size: 1.25rem;
+  font-size: 1.4rem;
   font-weight: 700;
-  color: var(--color-white);
+  color: var(--color-secondary);
   margin-bottom: 1rem;
 }
 
 .footer-text {
   font-family: var(--font-serif);
-  font-size: 1rem;
-  color: var(--color-beige);
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: var(--color-secondary);
   margin-bottom: 0.5rem;
 }
 

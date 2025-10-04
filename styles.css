@@ -903,3 +903,105 @@ body {
 .highlight-box {
   animation: glow 5s ease-in-out infinite;
 }
+/* Hero Decorative Elements */
+.hero-ball {
+  position: absolute;
+  bottom: 4rem;
+  right: 2rem;
+  width: 4rem;
+  height: 4rem;
+  border-radius: 50%;
+  background-color: #f29a2e;
+  box-shadow: 0 20px 40px rgba(242, 154, 46, 0.4);
+  animation: float 2s ease-in-out infinite;
+}
+
+@media (min-width: 640px) {
+  .hero-ball {
+    bottom: 6rem;
+    right: 4rem;
+    width: 5rem;
+    height: 5rem;
+  }
+}
+
+@media (min-width: 768px) {
+  .hero-ball {
+    width: 6rem;
+    height: 6rem;
+  }
+}
+
+@keyframes float {
+  0%,
+  100% {
+    transform: translateY(-20px);
+  }
+  50% {
+    transform: translateY(20px);
+  }
+}
+
+.hero-shape-1 {
+  position: absolute;
+  top: 5rem;
+  left: 1rem;
+  width: 3rem;
+  height: 3rem;
+  border: 4px solid #0597f2;
+  border-radius: 50%;
+  opacity: 0.3;
+  animation: rotate 8s linear infinite;
+}
+
+@media (min-width: 640px) {
+  .hero-shape-1 {
+    top: 8rem;
+    left: 3rem;
+    width: 4rem;
+    height: 4rem;
+  }
+}
+
+@keyframes rotate {
+  from {
+    transform: rotate(0deg) scale(1);
+  }
+  50% {
+    transform: rotate(180deg) scale(1.2);
+  }
+  to {
+    transform: rotate(360deg) scale(1);
+  }
+}
+
+.hero-shape-2 {
+  position: absolute;
+  bottom: 8rem;
+  left: 2rem;
+  width: 2rem;
+  height: 2rem;
+  border-radius: 50%;
+  background-color: #05aff2;
+  opacity: 0.2;
+  animation: pulse 3s ease-in-out infinite;
+}
+
+@media (min-width: 640px) {
+  .hero-shape-2 {
+    bottom: 12rem;
+    left: 6rem;
+    width: 3rem;
+    height: 3rem;
+  }
+}
+
+@keyframes pulse {
+  0%,
+  100% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.5);
+  }
+}
